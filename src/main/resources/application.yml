@@ -1,0 +1,61 @@
+server:
+  port: 8080
+#  servlet.contextPath: /api
+
+app:
+  version: ^project.version^
+  description: ^project.description^
+  name: ^project.name^
+
+
+spring:
+  application.name: teste
+  #  mandatory-file-encoding: UTF-8
+  http.encoding:
+    charset: UTF-8
+    enabled: true
+#  logging:
+#    file: logs/dev_app.log
+#    pattern:
+#      console: "%d %-5level [%thread] %logger : %msg%n"
+#      file: "%d %-5level [%thread] %logger : %msg%n"
+#    level:
+#      org.springframework.web: DEBUG
+#      br.net.gradual.controller: DEBUG
+#      org.hibernate: DEBUG
+  datasource:
+#    url: jdbc:h2:mem:mydb
+    url: jdbc:h2:file:~/teste-h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        ddl-auto: create
+  h2.console:
+    enabled: true
+    path: /h2-console
+    settings:
+      trace: false
+      web-allow-others: false
+
+#springdoc:
+#  api-docs:
+#    path: /openapi
+#    enabled: true
+#  swagger-ui:
+#    enabled: false
+#    show-extensions: true
+#    show-common-extensions: true
+#  packagesToScan: br.net.gradual.demo.controller
+##  pathsToMatch: /v1, /api/**
+#  show-actuator: true
+##  use-management-port: true
+#
+#management:
+#  server:
+#    port: 9090
+#  # This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
+#  endpoints.web.exposure.include: openapi, swaggerui
